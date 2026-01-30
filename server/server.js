@@ -5,7 +5,8 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
+
 
 // Middleware
 app.use(cors());
