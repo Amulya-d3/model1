@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
@@ -10,9 +11,8 @@ const PORT = 8000;
 app.use(cors());
 app.use(express.json());
 
-// 🔹 MongoDB connection
-mongoose.connect("mongodb://127.0.0.1:27017/predictionsDB")
-  .then(() => console.log("MongoDB connected (local)"))
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected (Railway)"))
   .catch(err => console.error("MongoDB error:", err.message));
 
 
